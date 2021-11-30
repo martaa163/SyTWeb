@@ -7,8 +7,8 @@ import {Jugador}  from "./jugador.model";
 export class UserService {
   constructor(private http: Http) {}
 
-  getUser() {
+  getUser() Observable<Jugador[]>{
     return this.http.get('/api/user')
-      .map((res: Response) => res.json().response);
+      .map((res: Response) => res.json().response.map((jugador: Jugador) => new Jugador().deserialize(jugador)));
   }
 }
