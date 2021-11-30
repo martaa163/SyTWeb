@@ -29,3 +29,4 @@ export class Jugador implements Deserializable {
     return this;
   }
 }
+

@@ -23,3 +23,20 @@ export class Partida {
 }
 
 }
+
+import {Deserializable} from "./deserializable.model";
+
+export class Partida implements Deserializable {
+    lugar: string;
+    nivel: string;
+    horario: string;
+    jugador1: Jugador;
+    jugador2: Jugador;
+    jugador3: Jugador;
+    jugador4: Jugador;
+
+  deserialize(input: any): this {
+    Object.assign(this, input);
+    return this;
+  }
+}
